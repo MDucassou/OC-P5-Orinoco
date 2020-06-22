@@ -1,0 +1,67 @@
+@mixin shadow{
+    box-shadow: 0 0 10px #c8c8c8;
+}
+
+@mixin carte ($enseignes) {
+    @each $enseigne, $item in $enseignes{
+        &--#{$enseigne}{
+        background-color: map-get($item, color__fond);
+        }
+    }
+}
+
+@mixin titre ($enseignes) {
+    @each $enseigne, $item in $enseignes{
+        &--#{$enseigne}{
+        font-family: map-get($item, font__titre);
+        background: -webkit-linear-gradient(map-get($item, gradient__angle), map-get($item, color__entree), map-get($item, color__dessert));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+@mixin texte ($enseigne) {
+    @each $enseigne, $item in $enseignes{
+        &--#{$enseigne}{
+        font-family: map-get($item, font__texte);
+        color: map-get($item, color__entree);
+        }
+    }
+}
+
+@mixin underline-color__entree ($enseigne) {
+    @each $enseigne, $item in $enseignes{
+        &--#{$enseigne}{
+            background-color: map-get($item, color__entree);
+        }
+    }
+}
+
+@mixin underline-color__plat ($enseigne) {
+    @each $enseigne, $item in $enseignes{
+        &--#{$enseigne}{
+            background-color: map-get($item, color__plat);
+        }
+    }
+}
+
+@mixin underline-color__dessert ($enseigne) {
+    @each $enseigne, $item in $enseignes{
+        &--#{$enseigne}{
+            background-color: map-get($item, color__dessert);
+        }
+    }
+}
+
+@mixin mobile-only {
+    @media screen and (max-width:map-get($breakpoints,mobile)){
+        @content;
+    }
+}
+
+@mixin mobile-tablette {
+    @media screen and (max-width:map-get($breakpoints,tablette)){
+        @content;
+    }
+}

@@ -1,0 +1,30 @@
+.main-footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: $enseigne-color__fond;
+    padding: 20px;
+    position: fixed;
+    bottom:0;
+    right: 15%;
+    left: 15%;
+
+    > a{
+        color: $enseigne-color__texte;
+        font-family: $enseigne-font__texte;
+        font-size: 1.2em;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    @include mobile-tablette{
+        right: 0;
+        left: 0;
+    }
+   
+}
+
+.wiggle {
+    &:hover{
+        animation: wiggle 2.5s infinite;
+    }
+}

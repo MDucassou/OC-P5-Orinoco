@@ -1,0 +1,671 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "belligerent";
+  src: url("fonts/Belligerent-Madness/belligerent.ttf");
+}
+@font-face {
+  font-family: "montserrat";
+  src: url("fonts/Montserrat/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: "montserrat-bold";
+  src: url("fonts/Montserrat/Montserrat-Bold.ttf");
+}
+@font-face {
+  font-family: "devonshire";
+  src: url("fonts/Devonshire-FontZillion/devonshire-regular.ttf");
+}
+@font-face {
+  font-family: "croissant";
+  src: url("fonts/Croissant-One-FontZillion/croissantone-regular.ttf");
+}
+@font-face {
+  font-family: "schola";
+  src: url("fonts/TeXGyreSchola-FontZillion/texgyreschola-regular.otf");
+}
+@font-face {
+  font-family: "dancing";
+  src: url("fonts/Dancing-Script/dancing-script-regular.ttf");
+}
+@font-face {
+  font-family: "segoe";
+  src: url("fonts/Segoe-print/SegoePrint.ttf");
+}
+@font-face {
+  font-family: "kaushan";
+  src: url("fonts/Kaushan-Script-FontZillion/kaushanscript-regular.ttf");
+}
+/*valeurs des La note enchantée*/
+/*valeurs des Le chic à la française*/
+/*valeurs des Le délice des papilles*/
+/*valeurs des La palette du goût*/
+/*Orinoco*/
+/*Map pour définir les caractéristiques graphiques de chaque restaurant (couleur, font)*/
+/*h1{
+    background-color: $enseigne-color__fond;
+    color: $enseigne-color__texte;
+    font-family: $enseigne-font__titre;
+    font-size: 3.5em;
+    font-weight: 400;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0;
+    &:hover{
+        cursor: pointer;
+    }
+
+
+}*/
+.next__bouton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 250px;
+  margin: auto;
+  background-color: #f3e9f1;
+  text-align: center;
+  color: #261624;
+  padding: 10px 30px 10px 30px;
+  border-radius: 10px;
+  font-family: "montserrat", "Arial";
+  font-size: 1.5em;
+  text-decoration: none;
+}
+.next__bouton:hover {
+  cursor: pointer;
+}
+.next__bouton p {
+  margin: 10px;
+}
+
+.suspension {
+  content: "";
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  width: 60px;
+  height: 15px;
+}
+.suspension_point {
+  background-color: #261624;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  animation: points 2s ease-in-out infinite alternate backwards;
+}
+.suspension_point--1 {
+  animation-delay: 0.3s;
+}
+.suspension_point--2 {
+  animation-delay: 0.6s;
+}
+.suspension_point--3 {
+  animation-delay: 0.9s;
+}
+
+@keyframes points {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  90% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  95% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@keyframes underline {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes grow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+header {
+  background-color: #f3e9f1;
+  text-align: center;
+  cursor: pointer;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  background-color: #eaeaea;
+}
+
+body {
+  background-color: white;
+  width: 70%;
+  margin: auto;
+  padding-bottom: 100px;
+  box-shadow: 0 0 10px #c8c8c8;
+}
+@media screen and (max-width: 900px) {
+  body {
+    width: 100%;
+  }
+}
+
+.main-footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f3e9f1;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  right: 15%;
+  left: 15%;
+}
+.main-footer > a {
+  color: #261624;
+  font-family: "montserrat", "Arial";
+  font-size: 1.2em;
+  font-weight: 600;
+  text-decoration: none;
+}
+@media screen and (max-width: 900px) {
+  .main-footer {
+    right: 0;
+    left: 0;
+  }
+}
+
+.wiggle:hover {
+  animation: wiggle 2.5s infinite;
+}
+
+.accueil-prev {
+  margin-bottom: 10px;
+}
+
+.accueil-prev__ligne {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 600px) {
+  .accueil-prev__ligne {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.accueil-prev__carte {
+  box-shadow: 0 0 10px #c8c8c8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  width: 250px;
+  height: 350px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.accueil-prev__carte:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.accueil-prev__carte:hover .grow {
+  animation: grow 0.5s ease-in-out forwards;
+}
+.accueil-prev__carte--note {
+  background-color: #fcdeda;
+}
+.accueil-prev__carte--chic {
+  background-color: #fff5fe;
+}
+.accueil-prev__carte--delice {
+  background-color: #edefef;
+}
+.accueil-prev__carte--palette {
+  background-color: #fdfffd;
+}
+@media screen and (max-width: 600px) {
+  .accueil-prev__carte {
+    width: 90%;
+  }
+}
+
+.accueil-prev__titre {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.accueil-prev__titre--note {
+  font-family: "devonshire";
+  background: -webkit-linear-gradient(0deg, #3d1318, #3d1318);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.accueil-prev__titre--chic {
+  font-family: "croissant";
+  background: -webkit-linear-gradient(290deg, #c67411, #8f5afe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.accueil-prev__titre--delice {
+  font-family: "dancing";
+  background: -webkit-linear-gradient(0deg, #0128dd, #5caefa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.accueil-prev__titre--palette {
+  font-family: "kaushan";
+  background: -webkit-linear-gradient(0deg, #3d9239, #beff7f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.accueil-prev__titre--chic {
+  font-size: 1.2em;
+}
+.accueil-prev__titre--note {
+  margin-top: 0;
+}
+
+.accueil-prev__texte {
+  font-size: 1.7em;
+  font-weight: 600;
+  margin: 0px;
+}
+.accueil-prev__texte--note {
+  font-family: "segoe";
+  color: #3d1318;
+}
+.accueil-prev__texte--chic {
+  font-family: "schola";
+  color: #c67411;
+}
+.accueil-prev__texte--delice {
+  font-family: "segoe";
+  color: #0128dd;
+}
+.accueil-prev__texte--palette {
+  font-family: "segoe";
+  color: #3d9239;
+}
+.accueil-prev__texte--note {
+  text-transform: uppercase;
+}
+.accueil-prev__texte--delice {
+  color: #0787fb;
+  font-weight: 400;
+}
+.accueil-prev__texte--palette {
+  color: #72bf55;
+  font-weight: 400;
+}
+
+.accueil__image--note {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu-carte__header {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 40px;
+  font-size: 2em;
+}
+
+.menu-carte {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 40px 80px 40px;
+  box-shadow: 0 0 10px #c8c8c8;
+}
+.menu-carte--note {
+  background-color: #fcdeda;
+}
+.menu-carte--chic {
+  background-color: #fff5fe;
+}
+.menu-carte--delice {
+  background-color: #edefef;
+}
+.menu-carte--palette {
+  background-color: #fdfffd;
+}
+@media screen and (max-width: 600px) {
+  .menu-carte {
+    padding: 10px 10px 50px 10px;
+  }
+}
+.menu-carte--note {
+  padding-top: 80px;
+}
+
+.menu-carte__titre {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2.7em;
+  font-weight: 500;
+}
+.menu-carte__titre--note {
+  font-family: "devonshire";
+  background: -webkit-linear-gradient(0deg, #3d1318, #3d1318);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.menu-carte__titre--chic {
+  font-family: "croissant";
+  background: -webkit-linear-gradient(290deg, #c67411, #8f5afe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.menu-carte__titre--delice {
+  font-family: "dancing";
+  background: -webkit-linear-gradient(0deg, #0128dd, #5caefa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.menu-carte__titre--palette {
+  font-family: "kaushan";
+  background: -webkit-linear-gradient(0deg, #3d9239, #beff7f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.menu-carte__titre--note {
+  margin: 0;
+}
+.menu-carte__titre--chic {
+  font-size: 1.9em;
+}
+.menu-carte__titre--delice {
+  font-size: 3.5em;
+}
+.menu-carte__titre--palette {
+  font-size: 3.5em;
+}
+
+.menu-carte__conteneur--note {
+  font-family: "segoe";
+  color: #3d1318;
+}
+.menu-carte__conteneur--chic {
+  font-family: "schola";
+  color: #c67411;
+}
+.menu-carte__conteneur--delice {
+  font-family: "segoe";
+  color: #0128dd;
+}
+.menu-carte__conteneur--palette {
+  font-family: "segoe";
+  color: #3d9239;
+}
+.menu-carte__conteneur h4 {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 0;
+  font-size: 1.4em;
+}
+.menu-carte__conteneur div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-size: 0.7em;
+}
+.menu-carte__conteneur div p:nth-child(1) {
+  width: 100%;
+  text-align: left;
+  padding-right: 20px;
+  margin: 10px 0 0px 0;
+}
+.menu-carte__conteneur div p:nth-child(2) {
+  text-align: right;
+  font-weight: bold;
+  margin: 10px 0 0px 0;
+}
+.menu-carte__conteneur--note {
+  font-size: 1.2em;
+}
+.menu-carte__conteneur--chic {
+  font-size: 1.1em;
+  font-weight: 400;
+}
+.menu-carte__conteneur--delice {
+  color: black;
+  font-size: 1em;
+  font-weight: 500;
+}
+.menu-carte__conteneur--delice h4 {
+  font-weight: 500;
+}
+.menu-carte__conteneur--delice div p:nth-child(2) {
+  margin: 0 0 10px 0;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.menu-carte__conteneur--delice div p:nth-child(1) {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+  padding: 0;
+}
+.menu-carte__conteneur--palette {
+  color: black;
+}
+.menu-carte__conteneur--palette div p:nth-child(1) {
+  margin-top: 0;
+  font-weight: 600;
+}
+.menu-carte__conteneur--palette div p:nth-child(2) {
+  margin-top: 0;
+  font-size: 1.4em;
+}
+@media screen and (max-width: 600px) {
+  .menu-carte__conteneur--palette div p:nth-child(1) {
+    margin-top: 10px;
+  }
+  .menu-carte__conteneur--palette div p:nth-child(2) {
+    margin-top: 10px;
+  }
+}
+
+.menu__underline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu__underline h4 {
+  font-size: 2em;
+}
+.menu__underline h4:hover + .plat__underline {
+  width: 100%;
+  height: 2px;
+  transform-origin: left;
+  animation: underline 0.5s ease-in-out;
+}
+
+.entree__underline--note {
+  background-color: #3d1318;
+}
+.entree__underline--chic {
+  background-color: #c67411;
+}
+.entree__underline--delice {
+  background-color: #0128dd;
+}
+.entree__underline--palette {
+  background-color: #3d9239;
+}
+
+.plat__underline--note {
+  background-color: #3d1318;
+}
+.plat__underline--chic {
+  background-color: #a56798;
+}
+.plat__underline--delice {
+  background-color: #0787fb;
+}
+.plat__underline--palette {
+  background-color: #72bf55;
+}
+
+.dessert__underline--note {
+  background-color: #3d1318;
+}
+.dessert__underline--chic {
+  background-color: #8f5afe;
+}
+.dessert__underline--delice {
+  background-color: #5caefa;
+}
+.dessert__underline--palette {
+  background-color: #beff7f;
+}
+
+.plat-liste {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.plat-liste div {
+  font-size: 1.1em;
+  width: 100%;
+}
+.plat-liste--chic {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+@media screen and (max-width: 600px) {
+  .plat-liste--chic {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+.plat-liste--delice {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+@media screen and (max-width: 600px) {
+  .plat-liste--delice {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+.plat-liste--palette {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+@media screen and (max-width: 600px) {
+  .plat-liste--palette {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.menu-dessert_conteneur--chic {
+  color: #8f5afe;
+}
+
+.menu-plat_conteneur--chic {
+  color: #a56798;
+}
+
+.menu-carte__plat {
+  align-items: center;
+  margin-bottom: 20px;
+}
+.menu-carte__plat h4 {
+  width: 100%;
+}
+.menu-carte__plat img {
+  width: 30%;
+  margin-top: 32px;
+}
+.menu-carte__plat--note {
+  margin: 20px 0 10px 0;
+}
+
+.enseigne-footer {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9em;
+  font-weight: 200;
+}
+.enseigne-footer--note {
+  font-family: "devonshire";
+  background: -webkit-linear-gradient(0deg, #3d1318, #3d1318);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.enseigne-footer--chic {
+  font-family: "croissant";
+  background: -webkit-linear-gradient(290deg, #c67411, #8f5afe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.enseigne-footer--delice {
+  font-family: "dancing";
+  background: -webkit-linear-gradient(0deg, #0128dd, #5caefa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.enseigne-footer--palette {
+  font-family: "kaushan";
+  background: -webkit-linear-gradient(0deg, #3d9239, #beff7f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.enseigne-footer img {
+  margin: 1em 10px 0 0;
+  height: 50px;
+}
+.enseigne-footer h3 {
+  margin-bottom: 0px;
+  font-weight: 400;
+}
+
+/*# sourceMappingURL=style.css.map */

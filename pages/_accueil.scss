@@ -1,0 +1,74 @@
+.accueil-prev{
+    margin-bottom: 10px;
+}
+
+.accueil-prev__ligne{
+    display: flex;
+    justify-content: space-evenly;
+    @include mobile-only{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.accueil-prev__carte{
+    @include shadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 250px;
+    height: 350px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    text-align: center;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.7;
+        & .grow {
+            animation: grow 0.5s ease-in-out forwards;
+        }
+    }
+    @include carte ($enseignes);
+    @include mobile-only{
+        width: 90%;
+    }
+}
+
+.accueil-prev__titre{
+    font-size: 1.5em;       
+    font-weight: 500;
+    @include titre ($enseignes);
+    &--chic{
+        font-size: 1.2em;
+    }
+    &--note{
+        margin-top: 0;
+    }
+    
+}
+
+
+.accueil-prev__texte{
+    @include texte ($enseignes);
+    font-size: 1.7em;
+    font-weight: 600;
+    margin: 0px;
+    &--note{
+        text-transform: uppercase;
+    }
+    &--delice{
+        color: $color__texte3--delice;
+        font-weight: 400;
+    }
+    &--palette{
+        color: $color__texte3--palette;
+        font-weight: 400;
+    }
+}
+
+.accueil__image--note{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
