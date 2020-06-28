@@ -12,116 +12,15 @@
     src: url('fonts/Montserrat/Montserrat-Bold.ttf');
 }
 
-@font-face{
-    font-family: 'devonshire';
-    src: url("fonts/Devonshire-FontZillion/devonshire-regular.ttf");
-}
-@font-face{
-    font-family: 'croissant';
-    src: url("fonts/Croissant-One-FontZillion/croissantone-regular.ttf");
-}
-@font-face{
-    font-family: 'schola';
-    src: url("fonts/TeXGyreSchola-FontZillion/texgyreschola-regular.otf");
-}
-@font-face{
-    font-family: 'dancing';
-    src: url("fonts/Dancing-Script/dancing-script-regular.ttf");
-}
-@font-face{
-    font-family: 'segoe';
-    src: url("fonts/Segoe-print/SegoePrint.ttf");
-}
-@font-face{
-    font-family: 'kaushan';
-    src: url("fonts/Kaushan-Script-FontZillion/kaushanscript-regular.ttf");
-}
-/*valeurs des La note enchantée*/
-$color__fond--note: #fcdeda;
-$color__texte1--note: #3d1318;
-$font__titre--note: 'devonshire';
-$font__texte--note: 'segoe';
-$gradient__angle--note: 0deg;
-
-/*valeurs des Le chic à la française*/
-$color__fond--chic: #fff5fe;
-$color__texte1--chic: #c67411;
-$color__texte2--chic: #8f5afe;
-$color__texte3--chic: #a56798;
-$font__titre--chic: 'croissant';
-$font__texte--chic: 'schola';
-$gradient__angle--chic: 290deg;
-
-/*valeurs des Le délice des papilles*/
-$color__fond--delice: #edefef;
-$color__texte1--delice: #0128dd;
-$color__texte2--delice: #5caefa;
-$color__texte3--delice: #0787fb;
-$color__texte-menu--delice: black;
-$font__titre--delice: 'dancing';
-$font__texte--delice: 'segoe';
-$gradient__angle--delice: 0deg;
-
-/*valeurs des La palette du goût*/
-$color__fond--palette: #fdfffd;
-$color__texte1--palette: #3d9239;
-$color__texte2--palette: #beff7f;
-$color__texte3--palette: #72bf55;
-$color__texte-menu--palette: black;
-$font__titre--palette: 'kaushan';
-$font__texte--palette: 'segoe';
-$gradient__angle--palette: 0deg;
-
 
 /*Orinoco*/
 $enseigne-color__fond: #f3e9f1;
+$enseigne-color__fond-carte: #fcdeda;
 $enseigne-color__texte: #261624;
 $enseigne-font__titre: 'belligerent', 'Arial';
 $enseigne-font__texte: 'montserrat', 'Arial';
 
 
-/*Map pour définir les caractéristiques graphiques de chaque restaurant (couleur, font)*/
-$enseignes: (
-    note: (
-        color__fond: $color__fond--note,
-        color__entree: $color__texte1--note,
-        color__dessert: $color__texte1--note,
-        color__plat: $color__texte1--note,
-        font__titre: $font__titre--note,
-        font__texte: $font__texte--note,
-        gradient__angle: $gradient__angle--note,
-    ),
-
-    chic: (
-        color__fond: $color__fond--chic,
-        color__entree: $color__texte1--chic,
-        color__dessert: $color__texte2--chic,
-        color__plat: $color__texte3--chic,
-        font__titre: $font__titre--chic,
-        font__texte: $font__texte--chic,
-        gradient__angle: $gradient__angle--chic,
-    ),
-
-    delice: (
-        color__fond: $color__fond--delice,
-        color__entree: $color__texte1--delice,
-        color__dessert: $color__texte2--delice,
-        color__plat: $color__texte3--delice,
-        font__titre: $font__titre--delice,
-        font__texte: $font__texte--delice,
-        gradient__angle: $gradient__angle--delice,
-    ),
-
-    palette: (
-        color__fond: $color__fond--palette,
-        color__entree: $color__texte1--palette,
-        color__dessert: $color__texte2--palette,
-        color__plat: $color__texte3--palette,
-        font__titre: $font__titre--palette,
-        font__texte: $font__texte--palette,
-        gradient__angle: $gradient__angle--palette,
-    )
-);
 
 $breakpoints: (
     mobile: 600px,

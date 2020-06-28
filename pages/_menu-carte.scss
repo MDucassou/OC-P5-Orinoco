@@ -10,7 +10,6 @@
     max-width: 600px;
     margin: auto;
     padding: 40px 40px 80px 40px;
-    @include carte ($enseignes);
     @include shadow;
     @include mobile-only{
         padding: 10px 10px 50px 10px;
@@ -21,7 +20,6 @@
 }
 
 .menu-carte__titre{
-    @include titre ($enseignes);
     margin-bottom: 30px;
     text-align: center;
     font-size: 2.7em;
@@ -42,7 +40,6 @@
 
 
 .menu-carte__conteneur{
-    @include texte ($enseignes);
     h4{
         text-align: center;
         margin-top: 32px;
@@ -67,56 +64,7 @@
             margin: 10px 0 0px 0;
         }
     }
-    &--note{
-        font-size:1.2em;
-    } 
-    &--chic{
-        font-size: 1.1em;
-        font-weight: 400;
-    }
-    &--delice{
-        color:$color__texte-menu--delice;
-        font-size: 1em;
-        font-weight: 500;
-        h4{
-            font-weight: 500;
-        }
-        div{
-            p:nth-child(2){
-                margin:0 0 10px 0;
-                font-size: 1.4em;
-                font-weight: bold;
-            }
-            p:nth-child(1){
-                margin:0 0 10px 0;
-                font-size: 1.1em;
-                padding:0;
-            }
-        }
-    }
-    &--palette{
-        color:$color__texte-menu--palette;
-        div{
-            p:nth-child(1){
-                margin-top: 0;
-                font-weight: 600;
-            }
-            p:nth-child(2){
-                margin-top: 0;
-                font-size: 1.4em;
-            }
-        }
-        @include mobile-only{
-            div{
-                p:nth-child(1){
-                    margin-top: 10px;
-                }
-                p:nth-child(2){
-                    margin-top: 10px;
-                }
-            }
-        }
-    }
+    
 }
 
 .menu__underline{
@@ -135,16 +83,6 @@
     }
 }
 
-.entree__underline {
-    @include underline-color__entree($enseignes);
-}
-.plat__underline {
-    @include underline-color__plat($enseignes);
-}
-.dessert__underline {
-    @include underline-color__dessert($enseignes);
-}
-
 
 .plat-liste{
     display: flex;
@@ -157,45 +95,8 @@
         font-size: 1.1em;
         width: 100%;
     }
-    &--chic{
-        padding-left: 50px;
-        padding-right: 50px;
-        @include mobile-only{
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-    }
-    &--delice{
-        padding-left: 50px;
-        padding-right: 50px;
-        @include mobile-only{
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-    }
-    &--palette{
-        padding-left: 40px;
-        padding-right: 40px;
-        @include mobile-only{
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-    }
 }
 
-
-
-.menu-dessert_conteneur{
-    &--chic{
-        color: $color__texte2--chic;
-    }
-}
-
-.menu-plat_conteneur{
-    &--chic{
-        color: $color__texte3--chic;
-    }
-}
 
 
 .menu-carte__plat{
@@ -209,16 +110,12 @@
         width: 30%;
         margin-top: 32px;
     }
-    &--note{
-        margin: 20px 0 10px 0;
-
-    }
+    
 }
 
 
 
 .enseigne-footer{
-    @include titre($enseignes);
     margin: 20px;
     display: flex;
     justify-content: center;
