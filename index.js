@@ -38,15 +38,7 @@ request.onreadystatechange = function() {
                 window.location = 'panier.html';
             });
 
-
-
-
-        });
-
-        
-
-
-           
+        });   
     }
 
 };

@@ -131,3 +131,13 @@
         font-weight: 400;
     }
 }
+
+.total {
+    font-size: 1.7em;
+    padding: 20px;
+    margin: 30px;
+    background-color: $enseigne-color__fond;
+    border-radius: 15px;
+    @include shadow;
+
+}
