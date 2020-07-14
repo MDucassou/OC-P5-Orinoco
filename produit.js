@@ -10,9 +10,6 @@ if (panier === null){
 }
 
 
-
-
-
 var request = new XMLHttpRequest();
 request.onreadystatechange = function() {
     if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
@@ -21,18 +18,22 @@ request.onreadystatechange = function() {
 
         var pageProduit = document.createElement ('div');
         pageProduit.classList.add('accueil-prev__carte-produit');
+        
         var nomChoisi = document.createElement ('h2');
         nomChoisi.textContent = teddy.name;
         nomChoisi.classList.add('accueil-prev__titre');
         pageProduit.appendChild(nomChoisi);
+
         var imageChoisi = document.createElement ('img');
         imageChoisi.src = teddy.imageUrl;
         imageChoisi.width = 200;
         imageChoisi.height = 150;
         pageProduit.appendChild(imageChoisi);
+
         var descriptionChoisi = document.createElement ('p');
         descriptionChoisi.textContent = teddy.description;
         pageProduit.appendChild(descriptionChoisi);
+
         var priceChoisi = document.createElement ('p');
         priceChoisi.textContent = teddy.price + " €";
         pageProduit.appendChild(priceChoisi);
@@ -47,14 +48,11 @@ request.onreadystatechange = function() {
         });
         pageProduit.appendChild(couleur);
 
-
         detailProduit.appendChild(pageProduit);
 
-
-
         validation.addEventListener ('click', function(){
-                    ajoutPanier (teddy._id, teddy.imageUrl, teddy.name, teddy.price);
-                    window.location='panier.html';
+            ajoutPanier (teddy._id, teddy.imageUrl, teddy.name, teddy.price);
+            window.location='panier.html';
         });
 
         function ajoutPanier (id, image, nom, prix) {

@@ -9,6 +9,9 @@ var i=0;
 let products = [];
 
         var panier = JSON.parse(localStorage.getItem('panier'));
+        if (panier === null){
+                panier={produits:[]};
+        }
         panier.produits.forEach(function(teddy) {
             var ligne = document.createElement('tr');
 
@@ -41,9 +44,10 @@ let products = [];
 
         totalCommande.innerText += total;
 
-        console.log(products);
+        console.log(panier);
 
-        if (i!=1 && i<2){
+
+        if (panier.produits.length==0){
                 etatPanier.textContent = "Votre panier est vide"
         } else {
                 viderPanier.classList.add('next__bouton');
@@ -60,22 +64,39 @@ let products = [];
                 }
         }
 
-let prenom = document.getElementById ('firstname').value;
-let nom = document.getElementById ('name').value;
-let adresse = document.getElementById ('adress').value;
-let ville = document.getElementById ('city').value;
-let email = document.getElementById ('mail').value;
+
+/*var request = new XMLHttpRequest();*/
 
 
+        boutonCommande.addEventListener('click', function(event){
+                let nom = document.getElementById('name').value;
+                let prenom = document.getElementById('firstname').value;
+                let adresse = document.getElementById('adress').value;
+                let ville = document.getElementById('city').value;
+                let email = document.getElementById('mail').value;
+                
+                event.preventDefault();
 
-var request = new XMLHttpRequest();
+                var productId=[];
+                panier.produits.forEach(function(produit){
+                        productId.push(produit.id);
+                });
+                var data = {contact:{lastName:nom, firstName:prenom, address:adresse, city:ville, email:email}, products:productId};
 
-        boutonCommande.addEventListener('click', function(){
-            var data = {contact:{nom:'nom', prenom:'prenom', adresse:'adresse', ville:'ville', eamil:'email'}, products:products};
-            request.open("POST", "http://localhost:3000/api/teddies/order");
-            request.setRequestHeader("Content-Type", "application/json");
-            request.send(JSON.parse(data));
+            //request.open("POST", "http://localhost:3000/api/teddies/order");
+            const headers = new Headers();
+            headers.append('Content-Type','application/json');
 
-            window.location='confirmation.html';
+            fetch('http://localhost:3000/api/teddies/order',{method:'POST',body: JSON.stringify(data),headers:headers}).then(response =>{
+                    
+                return response.json();
+            }).then(data =>{
+                    window.location='confirmation.html?order='+ data.orderId;
+                    console.log(data);
+                });
+            //request.setRequestHeader("Content-Type", "application/json");
+            //request.send(JSON.stringify(data));
+
+            //window.location='confirmation.html';
 });
 
