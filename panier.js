@@ -1,102 +1,147 @@
 
+// déclaration des variables
+let formulaire = document.getElementById ('saisieFormulaire');
 let tabCommande = document.getElementById ('tabPanier');
 let totalCommande = document.getElementById ('total');
-let boutonCommande = document.getElementById ('acheter');
+let valid = document.getElementById('validation');
 var total = 0;
 let etatPanier = document.getElementById ('etat-panier');
 let viderPanier = document.getElementById ('vider-panier');
+
+//variable permettant de connaître le nombre de produits dans le panier
 var i=0;
+
+// déclaration et initialisation du tableau d'id qui sera envoyé au serveur au moment de la commande
 let products = [];
 
-        var panier = JSON.parse(localStorage.getItem('panier'));
-        if (panier === null){
-                panier={produits:[]};
-        }
-        panier.produits.forEach(function(teddy) {
-            var ligne = document.createElement('tr');
+// déclaration de la variable panier qui vaut le contenu du localStorage généré grâce au bouton commande actionné sur les pages produits
+var panier = JSON.parse(localStorage.getItem('panier'));
 
-            var id = document.createElement('td');
-            id.textContent = teddy.id;
-            ligne.appendChild (id);
+// initialisation du panier comme tableau vide si le localStorage ne contient aucun élément
+if (panier === null){
+        panier={produits:[]};
+}
 
-            var preview = new Image();
-            var image = document.createElement('td');
-            preview.src = teddy.image;
-            preview.width = 100;
-            preview.height = 70;
-            image.appendChild(preview);
-            ligne.appendChild(image);
+//création du contenu du panier par une boucle passant sur chaque élément du tableau panier.
+//Récupération des informations souhaitées qui sont placées dans un tableau affiché dans la page panier.
+panier.produits.forEach(function(teddy) {
+        var ligne = document.createElement('tr');
 
-            var nom = document.createElement('td');
-            nom.textContent = teddy.nom;
-            ligne.appendChild (nom);
+        var id = document.createElement('td');
+        id.textContent = teddy.id;
+        ligne.appendChild (id);
 
-            var prix = document.createElement('td');
-            prix.textContent = teddy.prix;
-            ligne.appendChild (prix);
+        var preview = new Image();
+        var image = document.createElement('td');
+        preview.src = teddy.image;
+        preview.width = 100;
+        preview.height = 70;
+        image.appendChild(preview);
+        ligne.appendChild(image);
 
-            tabCommande.appendChild(ligne);
+        var nom = document.createElement('td');
+        nom.textContent = teddy.nom;
+        ligne.appendChild (nom);
 
-            total += teddy.prix;
-            i ++;
-            products.push(teddy.id);
-        });
+        var prix = document.createElement('td');
+        prix.textContent = teddy.prix;
+        ligne.appendChild (prix);
 
-        totalCommande.innerText += total;
+        tabCommande.appendChild(ligne);
 
-        console.log(panier);
+        //incrémentation du prix total du panier en ajoutant le prix du produit
+        total += teddy.prix;
 
+        //incrémentation de 1 de l'indice qui permet de connaître le nombre d'articles dans le panier
+        i ++;
 
-        if (panier.produits.length==0){
-                etatPanier.textContent = "Votre panier est vide"
-        } else {
+        //ajout de l'id du produit au tableau products qui sera envoyé au serveur au moment de passer la commande
+        products.push(teddy.id);
+});
+
+totalCommande.innerText += total;
+console.log(panier);
+
+// affichage de l'information sur le nombre d'articles contenu dans le panier
+// ajout d'un bouton pour vider le panier si celui-ci n'est pas déjà vide
+// actions de ce bouton: vider le localStorage (donc le panier) et recharger la page
+if (panier.produits.length==0){
+        etatPanier.textContent = "Votre panier est vide"
+} else {
                 viderPanier.classList.add('next__bouton');
                 viderPanier.innerHTML = "Vider le panier";
                 viderPanier.addEventListener ('click', function(){
                         localStorage.clear();
                         window.location.reload();
                 });
-                if (i == 1)
-                {
-                etatPanier.textContent = "Votre panier contient 1 article";
+                if (i == 1){
+                        etatPanier.textContent = "Votre panier contient 1 article";
                 } else {
                         etatPanier.textContent = "Votre panier contient " + i+ " articles";
                 }
         }
 
 
-/*var request = new XMLHttpRequest();*/
+// action à la soumission du formulaire:
+// création et remplissage de la variable data qui est envoyée au serveur
+// elle contient la donnée contact avec les valeurs des champs du formulaire
+// et la donnée products qui est un tableau des id des produits contenus dans le panier
+formulaire.addEventListener('submit', function(event){
+        event.preventDefault();
 
+        let nom = document.getElementById('name').value;
+        let prenom = document.getElementById('firstname').value;
+        let adresse = document.getElementById('adress').value;
+        let ville = document.getElementById('city').value;
+        let email = document.getElementById('mail').value;
+        
+        event.preventDefault();
 
-        boutonCommande.addEventListener('click', function(event){
-                let nom = document.getElementById('name').value;
-                let prenom = document.getElementById('firstname').value;
-                let adresse = document.getElementById('adress').value;
-                let ville = document.getElementById('city').value;
-                let email = document.getElementById('mail').value;
-                
-                event.preventDefault();
+        var productId=[];
+        panier.produits.forEach(function(produit){
+                productId.push(produit.id);
+        });
+        var data = {contact:{lastName:nom, firstName:prenom, address:adresse, city:ville, email:email}, products:productId};
 
-                var productId=[];
-                panier.produits.forEach(function(produit){
-                        productId.push(produit.id);
-                });
-                var data = {contact:{lastName:nom, firstName:prenom, address:adresse, city:ville, email:email}, products:productId};
+               
+        console.log(data);
+        console.log(total);
 
-            //request.open("POST", "http://localhost:3000/api/teddies/order");
-            const headers = new Headers();
-            headers.append('Content-Type','application/json');
+        
+        /*
+        var request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:3000/api/teddies/order");
+        request.setRequestHeader("Content-Type", "application/json");
+        request.send(JSON.stringify(data));
+*/
 
-            fetch('http://localhost:3000/api/teddies/order',{method:'POST',body: JSON.stringify(data),headers:headers}).then(response =>{
-                    
+        // définition de la requête POST au serveur
+        // et des actions: vide le panier (localStorage), met la valeur du montant total du panier dans le localStorage
+        const headers = new Headers();
+        headers.append('Content-Type','application/json');
+
+        fetch('http://localhost:3000/api/teddies/order',{method:'POST',body: JSON.stringify(data),headers:headers}).then(response =>{
                 return response.json();
-            }).then(data =>{
-                    window.location='confirmation.html?order='+ data.orderId;
-                    console.log(data);
-                });
-            //request.setRequestHeader("Content-Type", "application/json");
-            //request.send(JSON.stringify(data));
+                }).then(data =>{ 
+                        localStorage.clear();
+                        console.log(data.contact);
+                        console.log(data.orderId);
+                        localStorage.setItem('total', JSON.stringify(total));
+                        console.log(total);
 
-            //window.location='confirmation.html';
+                        //si le panier est vide la commande n'est pas envoyée au serveur
+                        if(total==0){
+                                valid.textContent = "Votre panier est vide, merci d'ajouter un article";
+                        }
+
+                        // si le panier contient au moins un article, la commande peut être envoyée au serveur (si le formulaire est valide)
+                        if(total!=0){
+                                window.location='confirmation.html?order='+ data.orderId;
+                        }
+                }
+        )
+
 });
+
+
 
