@@ -25,8 +25,13 @@ form {
   }
   
   input:focus, textarea:focus {
-    border-color: #000;
+    background-color: #ddd;
   }
+
+  input:invalid, textarea:invalid {
+    border: solid 1px red;
+  }
+
   
   textarea {
     vertical-align: top;

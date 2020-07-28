@@ -11,36 +11,19 @@
   src: url("fonts/Montserrat/Montserrat-Bold.ttf");
 }
 /*Orinoco*/
-/*h1{
-    background-color: $enseigne-color__fond;
-    color: $enseigne-color__texte;
-    font-family: $enseigne-font__titre;
-    font-size: 3.5em;
-    font-weight: 400;
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin: 0;
-    &:hover{
-        cursor: pointer;
-    }
-
-
-}*/
 .next__bouton {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 35px;
   width: 250px;
   margin: auto;
   background-color: #f3e9f1;
   text-align: center;
   color: #261624;
-  padding: 10px 30px 10px 30px;
+  padding: 5px 20px 5px 20px;
   border-radius: 10px;
   font-family: "montserrat", "Arial";
-  font-size: 1.5em;
+  font-size: 1.3em;
   text-decoration: none;
 }
 .next__bouton:hover {
@@ -159,6 +142,10 @@ body {
   }
 }
 
+p {
+  font-family: "montserrat", "Arial";
+}
+
 .main-footer {
   display: flex;
   justify-content: space-between;
@@ -214,7 +201,11 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-  border-color: #000;
+  background-color: #ddd;
+}
+
+input:invalid, textarea:invalid {
+  border: solid 1px red;
 }
 
 textarea {

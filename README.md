@@ -13,3 +13,6 @@ can then run the server with `node server`.
 The server should run on `localhost` with default port `3000`. If the
 server runs on another port for any reason, this is printed to the
 console when the server starts, e.g. `Listening on port 3001`.
+
+Le front end se lance par le index.html
+il permet d'accéder à une plateforme de vente en ligne: affichage de produits issus de l'API, sélection d'un produit, ajout au panier, passage d'une commande avec remplissage et validation d'un formulaire et attente d'une réponse du serveur

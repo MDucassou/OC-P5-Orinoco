@@ -2,16 +2,15 @@
     display :flex;
     align-items: center;
     justify-content: center;
-    height: 35px;
     width: 250px;
     margin: auto;
     background-color: $enseigne-color__fond;
     text-align: center;
     color: $enseigne-color__texte;
-    padding: 10px 30px 10px 30px;
+    padding: 5px 20px 5px 20px;
     border-radius: 10px;
     font-family: $enseigne-font__texte;
-    font-size: 1.5em;
+    font-size: 1.3em;
     text-decoration: none;
     &:hover{
         cursor: pointer;

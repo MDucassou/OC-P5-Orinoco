@@ -1,67 +1,79 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">	
-		<link rel="stylesheet" href="style.css"/>
-		<title>Orinoco</title>
-	</head>
-	<body>
-		<header>
-			<img onclick="window.location='index.html'" src="images/orinoco-caddie_logo.jpg" alt="logo Orinoco"/>
-		</header>
 
-		<div class="accueil-prev accueil-prev__carte-produit">
-			<table class="table" id="tabPanier">
-				<thead>
-					<tr><th width=30%>Référence</th><th>Aperçu</th><th>Nom</th><th>Prix</th></tr>
-				</thead>
-				<tbody id="tabPanier"></tbody>
-			</table>
-			
-			<p class="total">Total : <span id="total"></span>€</p>
-			<p id="etat-panier"></p>
-			<p id="vider-panier"></p>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<link rel="stylesheet" href="style.css" />
+	<title>Orinoco</title>
+</head>
 
-			</article>
+<body>
+	<header>
+		<img onclick="window.location='index.html'" src="images/orinoco-caddie_logo.jpg" alt="logo Orinoco" />
+	</header>
+
+	<div class="accueil-prev accueil-prev__carte-produit">
+		<table class="table" id="tabPanier">
+			<thead>
+				<tr>
+					<th width=30%>Référence</th>
+					<th>Aperçu</th>
+					<th>Nom</th>
+					<th>Prix</th>
+				</tr>
+			</thead>
+			<tbody id="tabPanier"></tbody>
+		</table>
+
+		<p class="total">Total : <span id="total"></span>€</p>
+		<p id="etat-panier"></p>
+		<p id="continuer-achat"></p>
+		<p></p>
+		<p id="vider-panier"></p>
+
+		</article>
+	</div>
+
+	<form class="accueil-prev__carte-produit" method="POST" id="saisieFormulaire">
+		<div>
+			<label for="name">* Nom :</label>
+			<input type="text" id="name" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_name" required>
 		</div>
+		<div>
+			<label for="firstname">* Prénom :</label>
+			<input type="text" id="firstname" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_firstName" required>
+		</div>
+		<div>
+			<label for="mail">* e-mail :</label>
+			<input type="email" id="mail" name="user_mail" required>
+		</div>
+		<div>
+			<label for="adress">* Adresse :</label>
+			<textarea type="text" id="adress" name="user_adress" minlength="5" required></textarea>
+		</div>
+		<div>
+			<label for="codePostal">* Code postal :</label>
+			<input type="text" id="codePostal" pattern="[0-9]{5}" name="user_codePostal" required>
+		</div>
+		<div>
+			<label for="ville">* Ville :</label>
+			<input type="text" id="city" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_city" required>
+		</div>
+		<div>
+			<button type="submit" class="next__bouton" id='acheter'>Acheter</button>
+		</div>
+		<div id="validation"></div>
+	</form>
 
-		<form class="accueil-prev__carte-produit" method="POST" id="saisieFormulaire">
-			<div>
-				<label for="name">* Nom :</label>
-				<input type="text" id="name" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_name" required>
-			</div>
-			<div>
-				<label for="firstname">* Prénom :</label>
-				<input type="text" id="firstname" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_firstName" required>
-			</div>
-			<div>
-				<label for="mail">* e-mail :</label>
-				<input type="email" id="mail" name="user_mail" required>
-			</div>
-			<div>
-				<label for="adress">* Adresse :</label>
-				<textarea type="text" id="adress" name="user_adress" required></textarea>
-			</div>
-			<div>
-				<label for="codePostal">* Code postal :</label>
-				<input type="text"  id="codePostal" pattern="[0-9]{5}" name="user_codePostal"  required>
-			</div>
-			<div>
-				<label for="ville">* Ville :</label>
-				<input type="text" id="city" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_city" required>
-			</div>
-			<div>	
-				<button type="submit" class="next__bouton" id='acheter'>Acheter</button>
-			</div>
-			<div id="validation"></div>
-		</form>
 
-		
-		<footer class="main-footer">
-			<a class="wiggle" href="mailto:contact@orinoco.fr" target="_blank">Contactez-nous</a>
-			<a class="wiggle" href="index.html">Accueil</a>
-		</footer>
-		<script type="text/javascript" src="panier.js"></script>
-	</body>
+	<footer class="main-footer">
+		<a class="wiggle" href="mailto:contact@orinoco.fr" target="_blank">Contactez-nous</a>
+		<a class="wiggle" href="index.html">Accueil</a>
+	</footer>
+	<script type="text/javascript" src="function.js"></script>
+	<script type="text/javascript" src="panier.js"></script>
+
+</body>
+
 </html>
