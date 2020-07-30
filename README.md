@@ -15,4 +15,4 @@ server runs on another port for any reason, this is printed to the
 console when the server starts, e.g. `Listening on port 3001`.
 
 Le front end se lance par le index.html
-il permet d'accéder à une plateforme de vente en ligne: affichage de produits issus de l'API, sélection d'un produit, ajout au panier, passage d'une commande avec remplissage et validation d'un formulaire et attente d'une réponse du serveur
+il permet d'accéder à une plateforme de vente en ligne: affichage de produits issus de l'API, sélection d'un produit, ajout au panier, passage d'une commande avec remplissage et validation d'un formulaire. Une page de validation et de remerciement de commande finalise les actions avec un numéro de commande renvoyé par le serveur.

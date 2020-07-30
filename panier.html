@@ -14,7 +14,7 @@
 	</header>
 
 	<div class="accueil-prev accueil-prev__carte-produit">
-		<table class="table" id="tabPanier">
+		<table class="table">
 			<thead>
 				<tr>
 					<th width=30%>Référence</th>
@@ -38,11 +38,11 @@
 	<form class="accueil-prev__carte-produit" method="POST" id="saisieFormulaire">
 		<div>
 			<label for="name">* Nom :</label>
-			<input type="text" id="name" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_name" required>
+			<input type="text" id="name" pattern="[a-zA-ZÀ-ÿ]{1,30}" name="user_name" required>
 		</div>
 		<div>
 			<label for="firstname">* Prénom :</label>
-			<input type="text" id="firstname" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_firstName" required>
+			<input type="text" id="firstname" pattern="[a-zA-ZÀ-ÿ]{1,30}" name="user_firstName" required>
 		</div>
 		<div>
 			<label for="mail">* e-mail :</label>

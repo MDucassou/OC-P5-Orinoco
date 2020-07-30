@@ -7,8 +7,6 @@ let validation = document.getElementById('commander');
 var panier = panier();
 
 // récupération des données du produit sélectionné dans l'API  grâce à son id passé dans l'URL et affichage des informations dans la page produit
-
-
 // définition de la requête: ouverture de la page du produit et récupération de l'id du produit sélectionné
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
